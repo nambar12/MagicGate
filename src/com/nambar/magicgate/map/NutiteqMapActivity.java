@@ -63,7 +63,6 @@ public class NutiteqMapActivity extends Activity
 	private LocationSource locationSource;
 	private NutiteqLocationMarker gpsMarker = new NutiteqLocationMarker(new PlaceIcon(Utils
 	        .createImage("/res/drawable/gps_marker.png"), 5, 17), 3000, true);
-	private CloudMade cmMap;
 
 
 	@Override
@@ -151,8 +150,7 @@ public class NutiteqMapActivity extends Activity
 
 	private void initMap(WgsPoint point) {
 		mapComponent = new BasicMapComponent("7e7757b1e12abcb736ab9a754ffb617a4bd7f63dbd64d2.86913678", "Nutiteq", "CMRouteTestAndroid", 1, 1, point, 17);
-		cmMap = new CloudMade("222c0ceb31794934a888ed9403a005d8", "test", 256, 1);
-		mapComponent.setMap(cmMap);
+		mapComponent.setMap(OpenStreetMap.MAPNIK);
 
 		MemoryCache memoryCache = new MemoryCache(1024 * 1024);
 		File cacheDir = new File("/sdcard/mapcache");
@@ -284,7 +282,7 @@ public class NutiteqMapActivity extends Activity
 		        break;
 		        
 		    case R.id.menu_cloudmade:
-		    	mapComponent.setMap(cmMap);
+		    	mapComponent.setMap(new CloudMade("222c0ceb31794934a888ed9403a005d8", "test", 256, 1));
 		    	item.setChecked(!item.isChecked());
 		    	break;
 
