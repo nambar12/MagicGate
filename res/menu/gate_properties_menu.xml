@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:title="Save &amp; Close" android:id="@+id/gate_properties_save_and_close" android:icon="@android:drawable/ic_menu_save"></item>
+	<item android:title="Cancel" android:id="@+id/gate_properties_menu_cancel" android:icon="@android:drawable/ic_menu_close_clear_cancel"></item>
+</menu>

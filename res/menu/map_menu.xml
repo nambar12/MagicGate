@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Maps" android:icon="@android:drawable/ic_menu_mapmode">
+        <menu>
+            <group android:id="@+id/maps_group"
+                    android:checkableBehavior="single" android:menuCategory="secondary">
+                <item android:id="@+id/menu_openstreetmap"
+                        android:title="OpenStreet map" 
+                         />
+                <item android:id="@+id/menu_cloudmade"
+                        android:title="CloudMade" android:checked="true"
+                        />
+                <item android:id="@+id/menu_nutiteq"
+                        android:title="Nutiteq"
+                        />
+                <item android:id="@+id/menu_jared"
+                        android:title="Jared"
+                        />
+                <item android:id="@+id/menu_hybrid" android:title="Hybrid (bundled+OSM)"></item>
+                <item android:id="@+id/menu_yahoo" android:title="Yahoo"></item>
+                <item android:id="@+id/menu_microsoft" android:title="Bing maps"></item>
+                <item android:id="@+id/menu_google_static" android:title="Google Static"></item>
+                <item android:id="@+id/menu_wms" android:title="WMS (wmap0)"></item>
+
+            </group>
+        </menu>
+   </item>
+	<item android:title="My Location" android:id="@+id/menu_item_location" android:icon="@android:drawable/ic_menu_mylocation"/>
+	<item android:title="Save &amp; Close" android:id="@+id/map_menu_save_and_close" android:icon="@android:drawable/ic_menu_save"></item>
+	<item android:title="Cancel" android:id="@+id/map_menu_cancel" android:icon="@android:drawable/ic_menu_close_clear_cancel"></item>
+</menu>

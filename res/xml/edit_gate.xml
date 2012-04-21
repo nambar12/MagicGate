@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="Gate details">
+		<EditTextPreference
+		   android:key="@string/GATE_PREF_NAME"
+		   android:title="Gate name"
+		   android:summary=""
+		   android:defaultValue=""/>
+		
+		<Preference
+		   android:key="@string/GATE_PREF_PHONE"
+		   android:title="Phone number"
+		   android:summary=""
+		   android:defaultValue=""/>
+
+		<ListPreference
+		   android:key="@string/GATE_PREF_LOCATION"
+		   android:title="Location"
+		   android:summary=""
+		   android:defaultValue=""
+		   android:entries="@array/GATE_PREF_LOCATION_OPTIONS"
+		   android:entryValues="@array/GATE_PREF_LOCATION_OPTIONS_VALUES"/>
+
+		<ListPreference
+		   android:key="@string/GATE_PREF_OPEN_DISTANCE"
+		   android:title="Opening distance"
+		   android:summary=""
+		   android:defaultValue=""
+		   android:entries="@array/GATE_PREF_OPEN_DISTANCE_ENTRIES"
+		   android:entryValues="@array/GATE_PREF_OPEN_DISTANCE_ENTRIES"/>
+
+		<ListPreference
+		   android:key="@string/GATE_PREF_GPS_ACTIVATION_DISTANCE"
+		   android:title="GPS activation distance"
+		   android:summary=""
+		   android:defaultValue=""
+		   android:entries="@array/GATE_PREF_GPS_ACTIVATION_DISTANCE_ENTRIES"
+		   android:entryValues="@array/GATE_PREF_GPS_ACTIVATION_DISTANCE_VALUES"/>
+
+		<Preference
+		   android:key="@string/GATE_PREF_SCHEDULE"
+		   android:title="Schedule"
+		   android:summary=""
+		   android:defaultValue=""/>
+
+	</PreferenceCategory>
+</PreferenceScreen>

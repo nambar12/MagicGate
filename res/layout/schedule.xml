@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<ImageView android:id="@+id/ImageView01" android:src="@drawable/decor_top" android:layout_height="wrap_content" android:layout_width="match_parent" android:scaleType="fitXY" android:layout_weight="1"></ImageView>
+<CheckBox  android:layout_width="match_parent" android:id="@+id/CheckBoxEnableSchedule" android:layout_height="wrap_content" android:text="Limit to specific hours" android:layout_weight="1" android:textAppearance="?android:attr/textAppearanceLarge"></CheckBox>
+<TextView android:text="From:" android:id="@+id/TextViewFrom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+<TimePicker android:layout_weight="1" android:id="@+id/TimePickerFrom" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"></TimePicker>
+<TextView android:text="To:" android:id="@+id/TextViewTo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+<TimePicker android:layout_weight="1" android:id="@+id/TimePickerTo" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"></TimePicker>
+<TextView android:layout_width="match_parent" android:text="" android:id="@+id/TextView03" android:layout_height="match_parent" android:layout_weight="100"></TextView>
+<ImageView android:id="@+id/ImageView02" android:src="@drawable/decor_buttom" android:layout_height="wrap_content" android:layout_width="match_parent" android:scaleType="fitXY" android:layout_weight="1"></ImageView>
+
+
+
+
+
+
+
+</LinearLayout>

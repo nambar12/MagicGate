@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="Global settings">
+		<CheckBoxPreference
+		   android:key="@string/PREF_NOTIFICATION_ALWAYS_ON"
+		   android:title="Show icon"
+		   android:summary="Show notification in status bar while running"
+		   android:defaultValue="false"/>
+		
+		<CheckBoxPreference
+		   android:key="@string/PREF_START_AT_BOOT"
+		   android:title="Auto start"
+		   android:summary="Start Magic Gate on boot"
+		   android:defaultValue="true"/>
+		
+	</PreferenceCategory>
+</PreferenceScreen>

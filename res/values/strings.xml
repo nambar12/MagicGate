@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">Magic Gate</string>
+<string name="waiting_for_fix">Waiting for fix...</string>
+
+<string name="FORGROUND_NOTIFICATION">FORGROUND_NOTIFICATION</string>
+<string name="ALWAYS_ON_NOTIFICATION">ALWAYS_ON_NOTIFICATION</string>
+
+<string name="PREF_NOTIFICATION_ALWAYS_ON">pref_notification_always_on</string>
+<string name="PREF_START_AT_BOOT">pref_start_at_boot</string>
+<string name="GATE_PREF_NAME">gate_pref_name</string>
+<string name="GATE_PREF_PHONE">gate_pref_phone</string>
+<string name="GATE_PREF_OPEN_DISTANCE">gate_pref_open_distance</string>
+<string name="GATE_PREF_GPS_ACTIVATION_DISTANCE">gate_pref_gps_activation_distance</string>
+<string name="GATE_PREF_LOCATION">gate_pref_location</string>
+<string name="GATE_PREF_SCHEDULE">gate_pref_schedule</string>
+<string-array name="GATE_PREF_OPEN_DISTANCE_ENTRIES">
+	<item>50 meters</item>
+	<item>100 meters</item>
+	<item>150 meters</item>
+	<item>200 meters</item>
+	<item>250 meters</item>
+	<item>300 meters</item>
+	<item>400 meters</item>
+	<item>500 meters</item>
+</string-array>
+<string-array name="GATE_PREF_GPS_ACTIVATION_DISTANCE_ENTRIES">
+	<item>100 meters</item>
+	<item>300 meters</item>
+	<item>500 meters</item>
+	<item>1.0 KM</item>
+	<item>1.5 KM</item>
+	<item>2.0 KM</item>
+	<item>2.5 KM</item>
+	<item>3.0 KM</item>
+	<item>4.0 KM</item>
+	<item>5.0 KM</item>
+	<item>7.0 KM</item>
+	<item>10.0 KM</item>
+	<item>15.0 KM</item>
+</string-array>
+<string-array name="GATE_PREF_GPS_ACTIVATION_DISTANCE_VALUES">
+	<item>100 meters</item>
+	<item>300 meters</item>
+	<item>500 meters</item>
+	<item>1000 meters</item>
+	<item>1500 meters</item>
+	<item>2000 meters</item>
+	<item>2500 meters</item>
+	<item>3000 meters</item>
+	<item>4000 meters</item>
+	<item>5000 meters</item>
+	<item>7000 meters</item>
+	<item>10000 meters</item>
+	<item>15000 meters</item>
+</string-array>
+<string-array name="GATE_PREF_LOCATION_OPTIONS">
+	<item>My current location</item>
+	<item>Show map</item>
+</string-array>
+<string-array name="GATE_PREF_LOCATION_OPTIONS_VALUES">
+	<item>0</item>
+	<item>1</item>
+</string-array>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:title="New gate" android:id="@+id/main_menu_new_gate" android:icon="@android:drawable/ic_menu_add"/>
+	<item android:title="Settings" android:id="@+id/main_menu_settings" android:icon="@android:drawable/ic_menu_preferences">
+       <menu>
+	       <item android:id="@+id/main_menu_screen_always_on" android:title="Screen always on" android:checkable="true"/>
+	       <item android:id="@+id/main_menu_notification_always_on" android:title="Show in status bar" android:checkable="true"/>
+        </menu>
+    </item>
+    <item android:title="Stop running" android:id="@+id/main_menu_stop_running" android:icon="@android:drawable/ic_lock_power_off"></item>
+	<item android:title="Close" android:id="@+id/main_menu_exit" android:icon="@android:drawable/ic_menu_close_clear_cancel"></item>
+
+</menu>
