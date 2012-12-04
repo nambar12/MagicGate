@@ -2,6 +2,7 @@ package com.nambar.magicgate;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import android.app.Activity;
@@ -34,7 +35,7 @@ import android.view.MenuItem;
 
 import com.nambar.magicgate.common.Gate;
 import com.nambar.magicgate.common.GatesList;
-import com.nambar.magicgate.map.NutiteqMapActivity;
+import com.nambar.magicgate.map.GoogleMapActivity;
 import com.nambar.magicgate.service.MagicGateService;
 import com.nambar.magicgate.service.MagicGateServiceBinder;
 
@@ -66,7 +67,7 @@ public class GatePropertiesActivity extends PreferenceActivity implements Locati
 	private ProgressDialog findLocationDialog = null;
 	private LocationManager locationManager = null;
 	private float lastSelectGPSActivationDistance = 0F;
-	private SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aaa");
+	private SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aaa", Locale.US);
 	
 	boolean modified = false;
 
@@ -316,7 +317,7 @@ public class GatePropertiesActivity extends PreferenceActivity implements Locati
 		}
 		if(uri != null)
 		{
-			Intent intent = new Intent(this, NutiteqMapActivity.class);
+			Intent intent = new Intent(this, GoogleMapActivity.class);
 			intent.setData(uri);
 			startActivityForResult(intent, PLACE_IN_MAP_REQUEST);
 		}
@@ -330,7 +331,7 @@ public class GatePropertiesActivity extends PreferenceActivity implements Locati
 			showDialog(NO_LOCATION_DIALOG);
 			return null;
 		}
-		return Uri.parse("geo:" + location.getLatitude() + "," + location.getLongitude() + "," + NutiteqMapActivity.NEW_GATE);
+		return Uri.parse("geo:" + location.getLatitude() + "," + location.getLongitude());
 	}
 	
 	private void findMyLocation()

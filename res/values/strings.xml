@@ -2,7 +2,7 @@
 <resources>
     
     <string name="app_name">Magic Gate</string>
-<string name="waiting_for_fix">Waiting for fix...</string>
+<string name="waiting_for_fix">Waiting for fix &#8230;</string>
 
 <string name="FORGROUND_NOTIFICATION">FORGROUND_NOTIFICATION</string>
 <string name="ALWAYS_ON_NOTIFICATION">ALWAYS_ON_NOTIFICATION</string>
@@ -63,4 +63,5 @@
 	<item>0</item>
 	<item>1</item>
 </string-array>
+<string name="MAP_INITAL_MESSAGE">Long-click on map to set gate location</string>
 </resources>
