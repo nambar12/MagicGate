@@ -12,6 +12,14 @@
 		   android:title="Auto start"
 		   android:summary="Start Magic Gate on boot"
 		   android:defaultValue="true"/>
+		<ListPreference
+		   android:key="@string/PREF_SAMPLE_RATE"
+		   android:title="Sample rate"
+		   android:entries="@array/PREF_SAMPLE_FREQUENCY_ENTRIES"
+		   android:entryValues="@array/PREF_SAMPLE_FREQUENCY_VALUES"
+		   android:summary="How often distance is being calculated. Frequent updates increase accuracy but consumes more battery"
+		   android:defaultValue="3" />
+		    
 		
 	</PreferenceCategory>
 </PreferenceScreen>

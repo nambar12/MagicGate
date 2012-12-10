@@ -1,5 +1,7 @@
 package com.nambar.magicgate;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import android.app.Activity;
@@ -42,6 +44,7 @@ public class MagicGateActivity extends Activity
 	
 	private ListView gates = null;
 	private TextView emptyMessageTextView = null;
+	private TextView systemInfoTextView = null;
 	private MagicGateServiceBinder binder;
 	private Gate lastSelectedGate = null;
 	private Handler locationHandler = null;
@@ -123,8 +126,34 @@ public class MagicGateActivity extends Activity
 		});
         
         emptyMessageTextView = (TextView)findViewById(R.id.GatesEmptyMessage);
+        systemInfoTextView = (TextView)findViewById(R.id.SystemInfoMessage);
 	}
 	
+
+	private void fillSysInfo()
+	{
+		StringBuffer sb = new StringBuffer();
+		sb.append("Last check: ");
+		if(binder.getLastWakeupTime() > 0)
+		{
+			sb.append(DateFormat.getTimeInstance().format(new Date(binder.getLastWakeupTime())));
+		}
+		else
+		{
+			sb.append("N/A");
+		}
+		sb.append("\n");
+		sb.append("Next check: ");
+		if(binder.getLastWakeupTime() > 0)
+		{
+			sb.append(DateFormat.getTimeInstance().format(new Date(binder.getNextWakeupTime())));
+		}
+		else
+		{
+			sb.append("N/A");
+		}
+		systemInfoTextView.setText(sb.toString());
+	}
 
 	@Override
 	protected Dialog onCreateDialog(int id)
@@ -199,7 +228,7 @@ public class MagicGateActivity extends Activity
 			gates.setVisibility(View.GONE);
 			emptyMessageTextView.setVisibility(View.VISIBLE);
 		}
-		
+        fillSysInfo();
 	}
 
 	private void addGate()

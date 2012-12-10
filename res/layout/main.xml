@@ -8,6 +8,7 @@
 <TextView android:id="@+id/GatesEmptyMessage" android:text="No gates are configured. Select New gate from the menu to add a gate" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="100" android:gravity="center"></TextView>
 <ListView android:id="@+id/ListViewGates" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="100"></ListView>
 <TextView android:text="" android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1"></TextView>
+<TextView android:text="" android:id="@+id/SystemInfoMessage" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1"></TextView>
 <ImageView android:id="@+id/ImageView02" android:src="@drawable/decor_buttom" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="match_parent" android:scaleType="fitXY"></ImageView>
 
 </LinearLayout>

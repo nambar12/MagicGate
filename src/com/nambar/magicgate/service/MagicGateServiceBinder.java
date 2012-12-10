@@ -45,4 +45,18 @@ public class MagicGateServiceBinder extends Binder
 		service.wakeup();
 	}
 
+	public long getNextWakeupTime()
+	{
+		return service.getNextWakeupTime();
+	}
+
+	public long getLastWakeupTime()
+	{
+		return service.getLastWakeupTime();
+	}
+	
+	public void updateAlarmRegistration()
+	{
+		service.updateAlarmRegistration();
+	}
 }

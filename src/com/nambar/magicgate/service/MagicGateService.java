@@ -42,7 +42,10 @@ public class MagicGateService extends Service implements LocationListener
 	private static MagicGateService s_instance = null;
 	private SampleMode sampleMode = SampleMode.ALARM;
 	private long fineLocationTimeout = 0;
+	private long wakeupTime = 0; 
+	private long lastWakeupTime = 0; 
 	private PendingIntent alarmPendingIntent = null;
+	private int sampleRate = 3;
 	
 	public MagicGateService()
 	{
@@ -78,7 +81,7 @@ public class MagicGateService extends Service implements LocationListener
 		Log.d(LOG_TAG, "init() - [in]");
 		alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
 		locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
-		//requestNetworkUpdates();
+		requestNetworkUpdates();
 		showAlwaysOnNotificationIfNeeded();
 		GatesList.getInstnace().init(getFilesDir());
 		
@@ -161,7 +164,7 @@ public class MagicGateService extends Service implements LocationListener
 			if(sampleMode == SampleMode.ALARM)
 			{
 				locationManager.removeUpdates(this);
-				registerForAlarm(getNextWakeupTime());
+				registerForAlarm(calcNextWakeupTime());
 			}
 		}
 	}
@@ -235,12 +238,12 @@ public class MagicGateService extends Service implements LocationListener
 	{
 		fineLocationRegistrationTime = 0;
 		locationManager.removeUpdates(this);
-		registerForAlarm(getNextWakeupTime());
+		registerForAlarm(calcNextWakeupTime());
 		sampleMode = SampleMode.ALARM;
 		unsetForeground();
 	}
 	
-	private long getNextWakeupTime()
+	private long calcNextWakeupTime()
 	{
 		if(GatesList.getInstnace().inApproxumateRangeOfAnyGate(lastLocation))
 		{
@@ -250,7 +253,9 @@ public class MagicGateService extends Service implements LocationListener
 		{
 			return MIN_NETWORK_UPDATE_TIME_MILLI;
 		}
-		return new Float((lastShortestDistance / MAX_REASONABLE_SPEED_METER_PER_MILLI) / 2).longValue();
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		int sampleRate = Integer.valueOf(prefs.getString(getString(R.string.PREF_SAMPLE_RATE), "3"));
+		return  Float.valueOf((lastShortestDistance / MAX_REASONABLE_SPEED_METER_PER_MILLI) / sampleRate).longValue();
 	}
 
 	private void requestNetworkUpdates()
@@ -347,13 +352,29 @@ public class MagicGateService extends Service implements LocationListener
 	private void registerForAlarm(long delay)
 	{
 		alarmManager.cancel(alarmPendingIntent);
-		long wakeupTime = System.currentTimeMillis() + delay;
+		lastWakeupTime = wakeupTime;
+		wakeupTime = System.currentTimeMillis() + delay;
 		alarmManager.set(AlarmManager.RTC_WAKEUP, wakeupTime, alarmPendingIntent);
 	}
 
 	public void wakeup()
 	{
 		requestNetworkUpdates();
+	}
+	
+	public long getNextWakeupTime()
+	{
+		return wakeupTime;
+	}
+
+	public long getLastWakeupTime()
+	{
+		return lastWakeupTime;
+	}
+	
+	public void updateAlarmRegistration()
+	{
+		registerForAlarm(IMMEDIATE_ALARM_MILLI);
 	}
 
 	public static MagicGateService getInstance()

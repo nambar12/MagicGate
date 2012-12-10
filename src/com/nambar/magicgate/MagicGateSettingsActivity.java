@@ -51,5 +51,17 @@ public class MagicGateSettingsActivity extends PreferenceActivity
 				return true;
 			}
 		});
+
+		Preference sampleRatePref = findPreference(getString(R.string.PREF_SAMPLE_RATE));
+		sampleRatePref.setOnPreferenceChangeListener(new OnPreferenceChangeListener()
+		{
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue)
+			{
+				if(binder == null) return false;
+				binder.updateAlarmRegistration();
+				return true;
+			}
+		});
 	}
 }
