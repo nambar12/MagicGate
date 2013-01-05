@@ -45,7 +45,6 @@ public class MagicGateService extends Service implements LocationListener
 	private long wakeupTime = 0; 
 	private long lastWakeupTime = 0; 
 	private PendingIntent alarmPendingIntent = null;
-	private int sampleRate = 3;
 	
 	public MagicGateService()
 	{
@@ -352,9 +351,16 @@ public class MagicGateService extends Service implements LocationListener
 	private void registerForAlarm(long delay)
 	{
 		alarmManager.cancel(alarmPendingIntent);
-		lastWakeupTime = wakeupTime;
-		wakeupTime = System.currentTimeMillis() + delay;
-		alarmManager.set(AlarmManager.RTC_WAKEUP, wakeupTime, alarmPendingIntent);
+		if(!GatesList.getInstnace().hasGates())
+		{
+			lastWakeupTime = wakeupTime;
+			wakeupTime = System.currentTimeMillis() + delay;
+			alarmManager.set(AlarmManager.RTC_WAKEUP, wakeupTime, alarmPendingIntent);
+		}
+		else
+		{
+			wakeupTime = 0;
+		}
 	}
 
 	public void wakeup()
